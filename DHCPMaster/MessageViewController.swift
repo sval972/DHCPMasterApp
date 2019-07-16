@@ -43,18 +43,18 @@ class MessageViewController: UITableViewController {
         super.viewDidLoad()
 
         _headerItems.append(("Opcode", String(describing: _dhcpMessage!._opcode)))
-        _headerItems.append(("HardwareType", String(describing: _dhcpMessage!._hwType)))
+        _headerItems.append(("Hardware Type", String(describing: _dhcpMessage!._hwType)))
         _headerItems.append(("Hops", String(_dhcpMessage!._hops)))
         _headerItems.append(("XID", String(_dhcpMessage!._xid)))
         _headerItems.append(("Secs", String(_dhcpMessage!._secs)))
         _headerItems.append(("Broadcast", String(_dhcpMessage!._broadcast)))
-        _headerItems.append(("ClientIPAddress (ciaddr)", (_dhcpMessage!._clientIpAddress as! IPv4Address).debugDescription))
-        _headerItems.append(("YourIPAddress (yiaddr)", (_dhcpMessage!._yourIpAddress as! IPv4Address).debugDescription))
-        _headerItems.append(("NextServerIPAddress (siaddr)", (_dhcpMessage!._nextServerIpAddress as! IPv4Address).debugDescription))
-        _headerItems.append(("RelayAgentIPAddress (giaddr)", (_dhcpMessage!._relayAgentIpAddress as! IPv4Address).debugDescription))
-        _headerItems.append(("ClientHardwareAddress (chaddr)", _dhcpMessage!._clientHardwareAddress.hexEncodedString()))
-        _headerItems.append(("ServerHostName (sname)", _dhcpMessage!._serverHostname))
-        _headerItems.append(("BootFileName (file)", _dhcpMessage!._bootFileName))
+        _headerItems.append(("Client IP (ciaddr)", (_dhcpMessage!._clientIpAddress as! IPv4Address).debugDescription))
+        _headerItems.append(("Your IP (yiaddr)", (_dhcpMessage!._yourIpAddress as! IPv4Address).debugDescription))
+        _headerItems.append(("Next Server IP (siaddr)", (_dhcpMessage!._nextServerIpAddress as! IPv4Address).debugDescription))
+        _headerItems.append(("Relay Agent IP (giaddr)", (_dhcpMessage!._relayAgentIpAddress as! IPv4Address).debugDescription))
+        _headerItems.append(("Hardware Address (chaddr)", _dhcpMessage!._clientHardwareAddress.hexEncodedString()))
+        _headerItems.append(("Server Name (sname)", _dhcpMessage!._serverHostname))
+        _headerItems.append(("File Name (file)", _dhcpMessage!._bootFileName))
         
         _optionItems.append(contentsOf: _dhcpMessage!._dhcpOptions)
     }
@@ -98,11 +98,17 @@ class MessageViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if  segue.identifier == "ShowHeaderItemSegue",
+        if segue.identifier == "ShowHeaderItemSegue",
             let destination = segue.destination as? MessageItemViewController,
             let index = tableView.indexPathForSelectedRow?.row
         {
             destination.headerItem = _headerItems[index]
+        }
+        else if segue.identifier == "ShowOptionItemSegue",
+            let destination = segue.destination as? MessageItemViewController,
+            let index = tableView.indexPathForSelectedRow?.row
+        {
+            destination.optionItem = _optionItems[index]
         }
     }
 }

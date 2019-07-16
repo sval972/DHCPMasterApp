@@ -22,14 +22,22 @@ class MessageHeaderExtendedViewCell: UITableViewCell {
 class MessageItemViewController: UITableViewController {
 
     var headerItem: (String, String)?
+    var optionItem: IDhcpOption?
     
     private var _tableItems = [(String, String)]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        _tableItems.append(("Name", headerItem!.0))
-        _tableItems.append(("Value", headerItem!.1))
+        if (headerItem != nil) {
+            _tableItems.append(("Name", headerItem!.0))
+            _tableItems.append(("Value", headerItem!.1))
+        }
+        else if (optionItem != nil) {
+            _tableItems.append(("Code", String(optionItem!._optionType.rawValue)))
+            _tableItems.append(("Name", String(describing: optionItem!._optionType)))
+            _tableItems.append(("Value", optionItem!._stringValue))
+        }
     }
 
     // MARK: - Table view data source

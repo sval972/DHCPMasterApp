@@ -78,14 +78,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kB6-bo-AW2">
-                                            <rect key="frame" x="25" y="12" width="156" height="17"/>
+                                            <rect key="frame" x="25" y="12" width="189" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CL-M6-jPm">
-                                            <rect key="frame" x="237" y="11" width="122" height="21"/>
+                                            <rect key="frame" x="222" y="11" width="137" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
@@ -133,6 +133,7 @@
                                     <outlet property="code" destination="IKN-4k-hOC" id="1yf-B3-wXL"/>
                                     <outlet property="key" destination="XpS-Gq-sja" id="fop-3I-eaa"/>
                                     <outlet property="value" destination="L1E-fZ-tgy" id="3mx-Fj-Qqw"/>
+                                    <segue destination="Y7b-4a-AUg" kind="show" identifier="ShowOptionItemSegue" id="dGO-Pc-HH3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -200,6 +201,7 @@
                 <navigationController id="Xdv-Ub-kgp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Sessions" id="LOU-Fz-AAj"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xv6-rH-1l6">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -269,4 +271,7 @@
     <resources>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="dGO-Pc-HH3"/>
+    </inferredMetricsTieBreakers>
 </document>
