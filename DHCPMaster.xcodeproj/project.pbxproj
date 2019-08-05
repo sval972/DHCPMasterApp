@@ -20,6 +20,8 @@
 		EB939C6E22513FAD009ED36A /* LocalCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB939C6D22513FAD009ED36A /* LocalCache.swift */; };
 		EBB416A9226D23570021AC00 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB416A8226D23570021AC00 /* MessageViewController.swift */; };
 		EBB416AB226D54470021AC00 /* MessageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB416AA226D54470021AC00 /* MessageItemViewController.swift */; };
+		EBCBC33122F8AC0B0015EA26 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCBC33022F8AC0A0015EA26 /* AppConfig.swift */; };
+		EBCBC33522F8BAEF0015EA26 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCBC33422F8BAEF0015EA26 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		EB939C6D22513FAD009ED36A /* LocalCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCache.swift; sourceTree = "<group>"; };
 		EBB416A8226D23570021AC00 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		EBB416AA226D54470021AC00 /* MessageItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageItemViewController.swift; sourceTree = "<group>"; };
+		EBCBC33022F8AC0A0015EA26 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		EBCBC33422F8BAEF0015EA26 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,10 +84,12 @@
 				EB685A8F223740CC0050D897 /* Assets.xcassets */,
 				EB685A91223740CC0050D897 /* LaunchScreen.storyboard */,
 				EB685A94223740CC0050D897 /* Info.plist */,
+				EBCBC33022F8AC0A0015EA26 /* AppConfig.swift */,
 				EB939C61224ECD5A009ED36A /* MessageLogViewController.swift */,
 				EB939C6D22513FAD009ED36A /* LocalCache.swift */,
 				EBB416A8226D23570021AC00 /* MessageViewController.swift */,
 				EBB416AA226D54470021AC00 /* MessageItemViewController.swift */,
+				EBCBC33422F8BAEF0015EA26 /* SettingsViewController.swift */,
 			);
 			path = DHCPMaster;
 			sourceTree = "<group>";
@@ -162,6 +168,7 @@
 			files = (
 				EB939C68224ED31A009ED36A /* DhcpClient.swift in Sources */,
 				EBB416A9226D23570021AC00 /* MessageViewController.swift in Sources */,
+				EBCBC33122F8AC0B0015EA26 /* AppConfig.swift in Sources */,
 				EB685A87223740CA0050D897 /* AppDelegate.swift in Sources */,
 				EB939C6E22513FAD009ED36A /* LocalCache.swift in Sources */,
 				EB939C6B224ED31A009ED36A /* DhcpMessage.swift in Sources */,
@@ -170,6 +177,7 @@
 				EB939C6A224ED31A009ED36A /* UDPBroadcastConnection.swift in Sources */,
 				EB939C62224ECD5A009ED36A /* MessageLogViewController.swift in Sources */,
 				EB939C69224ED31A009ED36A /* DhcpOptions.swift in Sources */,
+				EBCBC33522F8BAEF0015EA26 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

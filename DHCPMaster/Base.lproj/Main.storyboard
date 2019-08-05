@@ -47,13 +47,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="50N-7O-uH5">
-                        <barButtonItem key="rightBarButtonItem" title="Start" id="PIA-It-dKm">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="vFF-2g-mAb">
+                            <connections>
+                                <action selector="ClearPressed:" destination="j9p-kC-shP" id="60r-y9-JXI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="PIA-It-dKm">
                             <connections>
                                 <action selector="StartPressed:" destination="j9p-kC-shP" id="iVN-YQ-pvr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="_clearButton" destination="vFF-2g-mAb" id="Idi-wE-jxf"/>
                         <outlet property="_startButton" destination="PIA-It-dKm" id="yjY-uX-l5V"/>
                     </connections>
                 </tableViewController>
@@ -195,11 +201,11 @@
             </objects>
             <point key="canvasLocation" x="3568.8000000000002" y="-373.15270935960592"/>
         </scene>
-        <!--Sessions-->
+        <!--Messages-->
         <scene sceneID="Zln-w5-F5o">
             <objects>
                 <navigationController id="Xdv-Ub-kgp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Sessions" id="LOU-Fz-AAj"/>
+                    <tabBarItem key="tabBarItem" title="Messages" id="LOU-Fz-AAj"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xv6-rH-1l6">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -212,10 +218,10 @@
             </objects>
             <point key="canvasLocation" x="770" y="-373"/>
         </scene>
-        <!--Second-->
+        <!--Settings-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="DHCPMaster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="SettingsViewController" customModule="DHCPMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -243,7 +249,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="second" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>

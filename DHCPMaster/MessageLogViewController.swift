@@ -22,19 +22,26 @@ class SessionViewCell: UITableViewCell {
 class MessageLogViewController: UITableViewController {
 
     @IBOutlet weak var _startButton: UIBarButtonItem!
+    @IBOutlet weak var _clearButton: UIBarButtonItem!
     
     private var _dhcpClient: DhcpClient! = nil
     private var _localCache: LocalCache! = nil
+    private var _appConfig: AppConfig! = nil
     
     private var _messages = [DhcpMessage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        _dhcpClient = DhcpClient(macAddress: "abcdef".data(using: String.Encoding.ascii)!, sentCallback: { (message) in
-            
-            print(message.toString())
-            
+        _localCache = LocalCache()
+        _appConfig = AppConfig.GetConfig(cache: _localCache)
+
+        //TODO: Check if terms accepted, if not show terms & conditions page
+        //TODO: Settings page, change MAC
+        //TODO: Icons
+        
+        _dhcpClient = DhcpClient(macAddress: _appConfig._macAddress, sentCallback: { (message) in
+
             self._messages.append(message)
 
             DispatchQueue.main.async {
@@ -42,9 +49,7 @@ class MessageLogViewController: UITableViewController {
             }
             
         }, receivedCallback: { (message) in
-            
-            print(message.toString())
-            
+
             self._messages.append(message)
             
             DispatchQueue.main.async {
@@ -59,12 +64,9 @@ class MessageLogViewController: UITableViewController {
             self.present(alert, animated: true)
         })
         
-        _localCache = LocalCache()
-        
         for file in _localCache.getFilesList().sorted() {
             print(file)
             do {
-                //_localCache.deleteFile(fileName: file)
                 let data = _localCache.getData(fileName: file)
                 let message: DhcpMessage = try DhcpMessage(data: data!)
                 self._messages.append(message)
@@ -82,6 +84,19 @@ class MessageLogViewController: UITableViewController {
     @IBAction func StartPressed(_ sender: Any) {
         
         _dhcpClient.runDhcp()
+    }
+    
+    @IBAction func ClearPressed(_ sender: Any) {
+        
+        _messages.removeAll()
+        
+        for file in _localCache.getFilesList() {
+            _localCache.deleteFile(fileName: file)
+        }
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: - Table view data source

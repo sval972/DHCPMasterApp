@@ -9,7 +9,17 @@
 import Foundation
 
 class LocalCache {
-
+    
+    private let _configFile = "appconfig.json"
+    
+    func getConfigFile()->Data? {
+        return getData(fileName: _configFile)
+    }
+    
+    func saveConfigFile(content: Data) {
+        saveData(fileName: _configFile, data: content)
+    }
+    
     func getFilesList()->[String] {
         
         var files: [String] = [String]()
@@ -20,7 +30,9 @@ class LocalCache {
             let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL!, includingPropertiesForKeys: nil)
             
             for file in fileURLs {
-                files.append(file.lastPathComponent)
+                if (file.lastPathComponent != _configFile) {
+                    files.append(file.lastPathComponent)
+                }
             }
             
         } catch {
