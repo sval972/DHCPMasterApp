@@ -26,21 +26,17 @@ class MessageLogViewController: UITableViewController {
     
     private var _dhcpClient: DhcpClient! = nil
     private var _localCache: LocalCache! = nil
-    private var _appConfig: AppConfig! = nil
+    private var _appConfig: AppConfig = (UIApplication.shared.delegate as! AppDelegate).appConfig
     
     private var _messages = [DhcpMessage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        _localCache = LocalCache()
-        _appConfig = AppConfig.GetConfig(cache: _localCache)
-
         //TODO: Check if terms accepted, if not show terms & conditions page
-        //TODO: Settings page, change MAC
         //TODO: Icons
-        
-        _dhcpClient = DhcpClient(macAddress: _appConfig._macAddress, sentCallback: { (message) in
+
+        _dhcpClient = DhcpClient(sentCallback: { (message) in
 
             self._messages.append(message)
 
@@ -63,6 +59,8 @@ class MessageLogViewController: UITableViewController {
             let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
             self.present(alert, animated: true)
         })
+        
+        _localCache = LocalCache()
         
         for file in _localCache.getFilesList().sorted() {
             print(file)

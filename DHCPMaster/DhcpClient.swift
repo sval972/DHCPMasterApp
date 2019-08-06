@@ -8,10 +8,10 @@
 
 import Foundation
 import Network
+import UIKit
 
 class DhcpClient {
     
-    private let _macAddress: Data
     private let _sentCallback: ((_ message: DhcpMessage) -> Void)
     private let _receivedCallback: ((_ message: DhcpMessage) -> Void)
     private let _errorCallback: ((_ error: String) -> Void)
@@ -20,13 +20,13 @@ class DhcpClient {
     private var _pendingMap: [UInt32 : ((_ message: DhcpMessage) -> Void)]
     
     private let _localCache: LocalCache
+    private var _appConfig: AppConfig = (UIApplication.shared.delegate as! AppDelegate).appConfig
     
-    init(macAddress: Data,
+    init(
         sentCallback: @escaping ((_ message: DhcpMessage) -> Void),
         receivedCallback: @escaping ((_ message: DhcpMessage) -> Void),
         errorCallback: @escaping ((_ error: String) -> Void)) {
         
-        _macAddress = macAddress
         _sentCallback = sentCallback
         _receivedCallback = receivedCallback
         _errorCallback = errorCallback
@@ -41,7 +41,7 @@ class DhcpClient {
                 
                 let message: DhcpMessage = try DhcpMessage(data: Data(response))
                 
-                if (message._clientHardwareAddress.elementsEqual(macAddress)) {
+                if (message._clientHardwareAddress.elementsEqual(self._appConfig._macAddress)) {
                     receivedCallback(message)
                     
                     let callback = self._pendingMap[message._xid]
@@ -70,13 +70,13 @@ class DhcpClient {
         
         let xid = UInt32.random(in: 0..<UInt32.max)
         
-        let discover = DhcpMessage.CreateDiscover(xid: xid, macAddress: _macAddress)
+        let discover = DhcpMessage.CreateDiscover(xid: xid, macAddress: self._appConfig._macAddress)
         
         _pendingMap[xid] = {(offer) -> Void in
 
             if let serverIp = offer.serverIp {
                 
-                let request = DhcpMessage.CreateRequest(xid: xid, macAddress: self._macAddress, serverIp: serverIp, requestIp: offer._yourIpAddress)
+                let request = DhcpMessage.CreateRequest(xid: xid, macAddress: self._appConfig._macAddress, serverIp: serverIp, requestIp: offer._yourIpAddress)
                 
                 self._localCache.saveData(fileName: "\(Date().timeIntervalSinceReferenceDate)", data: request.toData())
                 self._broadcastConnection!.sendBroadcast(request.toData())

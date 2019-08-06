@@ -18,11 +18,12 @@ class AppConfig: Codable {
         _macAddress = macAddress
     }
     
-    static func GetConfig(cache: LocalCache) -> AppConfig {
+    static func GetConfig() -> AppConfig {
         
         var config: AppConfig? = nil
         
         let jsonCoder = JsonCoder()
+        let cache = LocalCache()
         
         if let configData = cache.getConfigFile() {
             config = jsonCoder.fromJson(configData)
