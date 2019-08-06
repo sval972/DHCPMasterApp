@@ -22,8 +22,7 @@ class MacAddressConfigViewCell: UITableViewCell {
     
     @IBAction func randomize(_ sender: Any) {
         _appConfig.changeMacAddress()
-        //value.text = appConfig._macAddress.hexEncodedString().capitalized
-        
+
         DispatchQueue.main.async {
             self._parent.tableView.reloadData()
         }
@@ -66,7 +65,7 @@ class SettingsViewController: UITableViewController {
         
         if (indexPath.section == 0) {
             let macCell = cell  as! MacAddressConfigViewCell
-            macCell.update(value: _appConfig._macAddress.hexEncodedString().capitalized, parent: self)
+            macCell.update(value: _appConfig._macAddress.hexEncodedString().uppercased(), parent: self)
         }
 
         return cell
