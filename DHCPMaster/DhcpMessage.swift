@@ -189,7 +189,6 @@ class DhcpMessage {
         data.append(UInt8(83))
         data.append(UInt8(99))
         
-        //RelayAgentInformation should be the last
         var optionsToWrite = _dhcpOptions.filter {$0._optionType != OptionType.RelayAgentInformation}
         
         if let relayAgentInfoOption = _dhcpOptions.first(where: {$0._optionType == OptionType.RelayAgentInformation}) {

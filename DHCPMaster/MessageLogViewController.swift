@@ -34,7 +34,10 @@ class MessageLogViewController: UITableViewController {
         super.viewDidLoad()
 
         //TODO: Check if terms accepted, if not show terms & conditions page
-        //TODO: Icons
+        
+        if (!_appConfig._termsAccepted) {
+            performSegue(withIdentifier: "ShowUserAgreement", sender: nil)
+        }
 
         _dhcpClient = DhcpClient(sentCallback: { (message) in
 

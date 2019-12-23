@@ -9,14 +9,32 @@
 import UIKit
 
 class UserAgreementViewController: UIViewController {
-
+    
+    @IBOutlet weak var AgreementSlider: UISwitch!
+    @IBOutlet weak var CloseButton: UIButton!
+    
+    private var _appConfig: AppConfig = (UIApplication.shared.delegate as! AppDelegate).appConfig
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func AgreementSliderChanged(_ sender: Any) {
+        
+        CloseButton.isEnabled = AgreementSlider.isOn
+    }
+    
+    @IBAction func CloseButtonPressed(_ sender: Any) {
+        
+        if (AgreementSlider.isOn) {
+            _appConfig.setTermsAccepted()
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

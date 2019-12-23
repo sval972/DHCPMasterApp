@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB64F0BF23AD872C00B0738D /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64F0BE23AD872C00B0738D /* UserAgreementViewController.swift */; };
 		EB685A87223740CA0050D897 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB685A86223740CA0050D897 /* AppDelegate.swift */; };
 		EB685A8E223740CA0050D897 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB685A8C223740CA0050D897 /* Main.storyboard */; };
 		EB685A90223740CC0050D897 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB685A8F223740CC0050D897 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB64F0BE23AD872C00B0738D /* UserAgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgreementViewController.swift; sourceTree = "<group>"; };
 		EB685A83223740CA0050D897 /* DHCPMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DHCPMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB685A86223740CA0050D897 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB685A8D223740CA0050D897 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				EBB416A8226D23570021AC00 /* MessageViewController.swift */,
 				EBB416AA226D54470021AC00 /* MessageItemViewController.swift */,
 				EBCBC33622F917610015EA26 /* SettingsViewController.swift */,
+				EB64F0BE23AD872C00B0738D /* UserAgreementViewController.swift */,
 			);
 			path = DHCPMaster;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				EB685A87223740CA0050D897 /* AppDelegate.swift in Sources */,
 				EB939C6E22513FAD009ED36A /* LocalCache.swift in Sources */,
 				EB939C6B224ED31A009ED36A /* DhcpMessage.swift in Sources */,
+				EB64F0BF23AD872C00B0738D /* UserAgreementViewController.swift in Sources */,
 				EBB416AB226D54470021AC00 /* MessageItemViewController.swift in Sources */,
 				EB939C6C224ED31A009ED36A /* DhcpUtils.swift in Sources */,
 				EB939C6A224ED31A009ED36A /* UDPBroadcastConnection.swift in Sources */,
