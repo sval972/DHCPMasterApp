@@ -50,7 +50,7 @@
                                 <action selector="ClearPressed:" destination="j9p-kC-shP" id="60r-y9-JXI"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Send" id="PIA-It-dKm">
+                        <barButtonItem key="rightBarButtonItem" title="Start" id="PIA-It-dKm">
                             <connections>
                                 <action selector="StartPressed:" destination="j9p-kC-shP" id="iVN-YQ-pvr"/>
                             </connections>
@@ -78,7 +78,7 @@
                                 <rect key="frame" x="16" y="61" width="343" height="398"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <mutableString key="text">End-User License Agreement ("Agreement")
+                                <string key="text">End-User License Agreement ("Agreement")
 
 Last updated: December 22, 2019
 
@@ -218,7 +218,7 @@ The Agreement constitutes the entire agreement between you and SvalTech LLC rega
 
 You may be subject to additional terms and conditions that apply when you use or purchase other SvalTech LLC's services, which SvalTech LLC will provide to you at the time of such use or purchase.
 
-</mutableString>
+</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -230,7 +230,7 @@ You may be subject to additional terms and conditions that apply when you use or
                                     <action selector="AgreementSliderChanged:" destination="z8V-Tm-lk3" eventType="valueChanged" id="RY8-Ml-s1i"/>
                                 </connections>
                             </switch>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="I acknowledge that I have read, understand and agree to the End-User License Agreement" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ijy-BD-gX2">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="I acknowledge that I have read, understood and accepted the End-User License Agreement" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ijy-BD-gX2">
                                 <rect key="frame" x="90" y="500" width="269" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -399,7 +399,7 @@ You may be subject to additional terms and conditions that apply when you use or
         <scene sceneID="Zln-w5-F5o">
             <objects>
                 <navigationController id="Xdv-Ub-kgp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Messages" id="LOU-Fz-AAj"/>
+                    <tabBarItem key="tabBarItem" title="Messages" image="MainNavBar-NetworkRequests" id="LOU-Fz-AAj"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xv6-rH-1l6">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -451,7 +451,7 @@ You may be subject to additional terms and conditions that apply when you use or
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Settings" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="MainNavBar-Settings" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -467,7 +467,7 @@ You may be subject to additional terms and conditions that apply when you use or
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="oIe-Jq-AGM"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" id="Mba-7N-nMO"/>
+                    <tabBarItem key="tabBarItem" title="About" image="MainNavBar-About" id="Mba-7N-nMO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iNT-xG-yyx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -495,7 +495,9 @@ You may be subject to additional terms and conditions that apply when you use or
         </scene>
     </scenes>
     <resources>
-        <image name="second" width="30" height="30"/>
+        <image name="MainNavBar-About" width="24" height="24"/>
+        <image name="MainNavBar-NetworkRequests" width="24" height="24"/>
+        <image name="MainNavBar-Settings" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dGO-Pc-HH3"/>
