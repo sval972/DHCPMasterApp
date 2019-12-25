@@ -12,10 +12,25 @@ import Network
 class SessionViewCell: UITableViewCell {
     
     @IBOutlet weak var _label: UILabel!
+    @IBOutlet weak var _messageDirImage: UIImageView!
     
     func updateCell(message: DhcpMessage) {
         
         _label.text = "\(message.messageType == nil ? "nil" : String(describing: message.messageType!)): \(message._xid) : \((message._yourIpAddress as! IPv4Address).debugDescription)"
+        
+        if (message.messageType != nil) {
+            
+            switch message.messageType {
+                case .Discover, .Request, .Inform:
+                    _messageDirImage.image = UIImage(named: "Message-UpRightArrow")
+                    
+                case .Offer, .Ack, .Nak:
+                    _messageDirImage.image = UIImage(named: "Message-DownLeftArrow")
+
+                default:
+                    _messageDirImage.image = nil
+            }
+        }
     }
 }
 
