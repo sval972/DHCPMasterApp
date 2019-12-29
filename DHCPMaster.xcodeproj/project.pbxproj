@@ -12,6 +12,10 @@
 		EB685A8E223740CA0050D897 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB685A8C223740CA0050D897 /* Main.storyboard */; };
 		EB685A90223740CC0050D897 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB685A8F223740CC0050D897 /* Assets.xcassets */; };
 		EB685A93223740CC0050D897 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB685A91223740CC0050D897 /* LaunchScreen.storyboard */; };
+		EB6FCD7423B6A2390020FC44 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FCD7323B6A2390020FC44 /* AboutViewController.swift */; };
+		EB6FCD7623B855C80020FC44 /* eula.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB6FCD7523B855C80020FC44 /* eula.txt */; };
+		EB6FCD7823B859BF0020FC44 /* softwarelicense.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB6FCD7723B859BF0020FC44 /* softwarelicense.txt */; };
+		EB6FCD7A23B85F700020FC44 /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FCD7923B85F700020FC44 /* LicenseViewController.swift */; };
 		EB939C62224ECD5A009ED36A /* MessageLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB939C61224ECD5A009ED36A /* MessageLogViewController.swift */; };
 		EB939C68224ED31A009ED36A /* DhcpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB939C63224ED319009ED36A /* DhcpClient.swift */; };
 		EB939C69224ED31A009ED36A /* DhcpOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB939C64224ED319009ED36A /* DhcpOptions.swift */; };
@@ -33,6 +37,10 @@
 		EB685A8F223740CC0050D897 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB685A92223740CC0050D897 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB685A94223740CC0050D897 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB6FCD7323B6A2390020FC44 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		EB6FCD7523B855C80020FC44 /* eula.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = eula.txt; sourceTree = "<group>"; };
+		EB6FCD7723B859BF0020FC44 /* softwarelicense.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = softwarelicense.txt; sourceTree = "<group>"; };
+		EB6FCD7923B85F700020FC44 /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
 		EB939C61224ECD5A009ED36A /* MessageLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageLogViewController.swift; sourceTree = "<group>"; };
 		EB939C63224ED319009ED36A /* DhcpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DhcpClient.swift; sourceTree = "<group>"; };
 		EB939C64224ED319009ED36A /* DhcpOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DhcpOptions.swift; sourceTree = "<group>"; };
@@ -93,6 +101,10 @@
 				EBB416AA226D54470021AC00 /* MessageItemViewController.swift */,
 				EBCBC33622F917610015EA26 /* SettingsViewController.swift */,
 				EB64F0BE23AD872C00B0738D /* UserAgreementViewController.swift */,
+				EB6FCD7323B6A2390020FC44 /* AboutViewController.swift */,
+				EB6FCD7923B85F700020FC44 /* LicenseViewController.swift */,
+				EB6FCD7723B859BF0020FC44 /* softwarelicense.txt */,
+				EB6FCD7523B855C80020FC44 /* eula.txt */,
 			);
 			path = DHCPMaster;
 			sourceTree = "<group>";
@@ -157,8 +169,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB685A93223740CC0050D897 /* LaunchScreen.storyboard in Resources */,
+				EB6FCD7823B859BF0020FC44 /* softwarelicense.txt in Resources */,
 				EB685A90223740CC0050D897 /* Assets.xcassets in Resources */,
 				EB685A8E223740CA0050D897 /* Main.storyboard in Resources */,
+				EB6FCD7623B855C80020FC44 /* eula.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB939C68224ED31A009ED36A /* DhcpClient.swift in Sources */,
+				EB6FCD7A23B85F700020FC44 /* LicenseViewController.swift in Sources */,
 				EBB416A9226D23570021AC00 /* MessageViewController.swift in Sources */,
 				EBCBC33122F8AC0B0015EA26 /* AppConfig.swift in Sources */,
 				EB685A87223740CA0050D897 /* AppDelegate.swift in Sources */,
@@ -179,6 +194,7 @@
 				EBB416AB226D54470021AC00 /* MessageItemViewController.swift in Sources */,
 				EB939C6C224ED31A009ED36A /* DhcpUtils.swift in Sources */,
 				EB939C6A224ED31A009ED36A /* UDPBroadcastConnection.swift in Sources */,
+				EB6FCD7423B6A2390020FC44 /* AboutViewController.swift in Sources */,
 				EB939C62224ECD5A009ED36A /* MessageLogViewController.swift in Sources */,
 				EB939C69224ED31A009ED36A /* DhcpOptions.swift in Sources */,
 				EBCBC33722F917610015EA26 /* SettingsViewController.swift in Sources */,

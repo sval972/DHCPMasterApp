@@ -12,18 +12,24 @@ class UserAgreementViewController: UIViewController {
     
     @IBOutlet weak var AgreementSlider: UISwitch!
     @IBOutlet weak var CloseButton: UIButton!
+    @IBOutlet weak var EulaTextBox: UITextView!
     
     private var _appConfig: AppConfig = (UIApplication.shared.delegate as! AppDelegate).appConfig
+    
+    private var _eulaLoaded: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let eulaStr = _appConfig.getEula() {
+            EulaTextBox.text = eulaStr
+            _eulaLoaded = true
+        }
     }
     
     @IBAction func AgreementSliderChanged(_ sender: Any) {
         
-        CloseButton.isEnabled = AgreementSlider.isOn
+        CloseButton.isEnabled = AgreementSlider.isOn && _eulaLoaded
     }
     
     @IBAction func CloseButtonPressed(_ sender: Any) {

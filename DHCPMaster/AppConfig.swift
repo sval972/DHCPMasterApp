@@ -56,4 +56,42 @@ class AppConfig: Codable {
         let cache = LocalCache()
         cache.saveConfigFile(content: jsonCoder.toJson(self)!)
     }
+    
+    func getEula() -> String? {
+        
+        var eulaStr: String? = nil
+        
+        if let filepath = Bundle.main.path(forResource: "eula", ofType: "txt") {
+            do {
+                let contents = try String(contentsOfFile: filepath)
+                eulaStr = contents
+                
+            } catch {
+                print("eula.txt contents could not be loaded")
+            }
+        } else {
+            print("eula.txt not found")
+        }
+        
+        return eulaStr
+    }
+    
+    func getSoftwareLicense() -> String? {
+        
+        var licenseStr: String? = nil
+        
+        if let filepath = Bundle.main.path(forResource: "softwarelicense", ofType: "txt") {
+            do {
+                let contents = try String(contentsOfFile: filepath)
+                licenseStr = contents
+                
+            } catch {
+                print("softwarelicense.txt contents could not be loaded")
+            }
+        } else {
+            print("softwarelicense.txt not found")
+        }
+        
+        return licenseStr
+    }
 }
