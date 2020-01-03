@@ -1,6 +1,6 @@
 //
 //  DhcpOptions.swift
-//  DHCPingTest2
+//  DHCPMaster
 //
 //  Created by Alexey Altoukhov on 1/19/19.
 //  Copyright © 2019 Alexey Altoukhov. All rights reserved.
@@ -78,6 +78,7 @@ enum OptionType: UInt8 {
     case XWindowSystemFontServer = 48
     case XWindowSystemDisplayManager = 49
     
+    // 9: DHCP Extensions
     case RequestedIpAddress = 50
     case IpAddressLeaseTime = 51
     case OptionOverload = 52
@@ -94,6 +95,7 @@ enum OptionType: UInt8 {
     case NetworkInformationServicePlusServers = 65
     case TftpServerName = 66
     case BootFileName = 67
+    
     case MobileIpHomeAgent = 68
     case SimpleMailTransportProtocolServer = 69
     case PostOfficeProtocolServer = 70
@@ -103,7 +105,7 @@ enum OptionType: UInt8 {
     case DefaultInternetRelayChat = 74
     case StreetTalkServer = 75
     case StreetTalkDirectoryAssistanceServer = 76
-    case DhcpUserClass = 77 // RFC3004
+    case UserClass = 77 // RFC3004
     
     case FullyQualifiedDomainName = 81 // RFC4702
     case RelayAgentInformation = 82
@@ -127,8 +129,8 @@ enum OptionType: UInt8 {
      */
     
     case Etherboot = 175
-    case ClasslessStaticRoutes = 249
-    case WindowsLoaderBcdPath = 252
+    case ClasslessStaticRoutesB = 249
+    case WindowsBcdFilePath = 252
     case End = 255
     
     case Option62 = 62
@@ -402,7 +404,7 @@ class DhcpOptionFactory {
             case OptionType.BootFileName.rawValue:
                 return BootFileNameDhcpOption(data: data)
             
-            case OptionType.DhcpUserClass.rawValue:
+            case OptionType.UserClass.rawValue:
                 return UserClassDhcpOption(data: data)
             
             case OptionType.FullyQualifiedDomainName.rawValue:
@@ -423,8 +425,8 @@ class DhcpOptionFactory {
             case OptionType.AutoConfigure.rawValue:
                 return try AutoConfigureDhcpOption(data: data)
             
-            case OptionType.WindowsLoaderBcdPath.rawValue:
-                return WindowsLoaderBcdPathDhcpOption(data: data)
+            case OptionType.WindowsBcdFilePath.rawValue:
+                return WindowsBcdFilePathDhcpOption(data: data)
             
             case OptionType.Pad.rawValue:
                 throw DhcpError.unexpectedDhcpOption
@@ -970,11 +972,11 @@ class BootFileNameDhcpOption : StringDhcpOption {
 class UserClassDhcpOption : StringDhcpOption {
 
     convenience init(userClass: String) {
-        self.init(optionType: OptionType.DhcpUserClass, string: userClass)
+        self.init(optionType: OptionType.UserClass, string: userClass)
     }
     
     convenience init(data: Data) {
-        self.init(optionType: OptionType.DhcpUserClass, data: data)
+        self.init(optionType: OptionType.UserClass, data: data)
     }
     
     var userClass: String {
@@ -1133,15 +1135,15 @@ class AutoConfigureDhcpOption : UInt8DhcpOption {
     }
 }
 
-//DHCP Option 252 (Windows Loader BCD Path)
-class WindowsLoaderBcdPathDhcpOption : StringDhcpOption {
+//DHCP Option 252 (Windows BCD Path)
+class WindowsBcdFilePathDhcpOption : StringDhcpOption {
     
     convenience init(bcdPath: String) {
-        self.init(optionType: OptionType.WindowsLoaderBcdPath, string: bcdPath)
+        self.init(optionType: OptionType.WindowsBcdFilePath, string: bcdPath)
     }
     
     convenience init(data: Data) {
-        self.init(optionType: OptionType.WindowsLoaderBcdPath, data: data)
+        self.init(optionType: OptionType.WindowsBcdFilePath, data: data)
     }
     
     var bcdPath: String {

@@ -48,8 +48,6 @@ class MessageLogViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //TODO: Check if terms accepted, if not show terms & conditions page
-        
         if (!_appConfig._termsAccepted) {
             performSegue(withIdentifier: "ShowUserAgreement", sender: nil)
         }
@@ -98,6 +96,13 @@ class MessageLogViewController: UITableViewController {
     }
 
     @IBAction func StartPressed(_ sender: Any) {
+        _startButton.isEnabled = false
+        
+        _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { timer in
+            DispatchQueue.main.async {
+                self._startButton.isEnabled = true
+            }
+        })
         
         _dhcpClient.runDhcp()
     }

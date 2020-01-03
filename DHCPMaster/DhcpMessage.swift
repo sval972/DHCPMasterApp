@@ -1,6 +1,6 @@
 //
 //  DhcpMessage.swift
-//  DHCPingTest2
+//  DHCPMaster
 //
 //  Created by Alexey Altoukhov on 1/13/19.
 //  Copyright © 2019 Alexey Altoukhov. All rights reserved.

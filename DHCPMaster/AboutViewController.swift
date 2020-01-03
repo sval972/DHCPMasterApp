@@ -9,6 +9,12 @@
 import UIKit
 
 class AboutHeaderViewCell: UITableViewCell {
+    @IBOutlet weak var _appInfoLabel: UILabel!
+    
+    func updateCell() {
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        _appInfoLabel.text = _appInfoLabel.text! + appVersion!
+    }
 }
 
 class AboutItemViewCell: UITableViewCell {
@@ -16,6 +22,7 @@ class AboutItemViewCell: UITableViewCell {
     @IBOutlet weak var ItemTitle: UILabel!
     
     func updateCell(title: String) {
+        
         ItemTitle.text = title
     }
 }
@@ -52,6 +59,12 @@ class AboutViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: indexPath.section == 0 ? "AboutHeaderCell" : "AboutItemCell", for: indexPath)
 
+        
+        if (indexPath.section == 0) {
+            let itemCell = cell as! AboutHeaderViewCell
+            itemCell.updateCell()
+        }
+        
         if (indexPath.section == 1) {
             let itemCell = cell as! AboutItemViewCell
             itemCell.updateCell(title: self.items[indexPath.row])
