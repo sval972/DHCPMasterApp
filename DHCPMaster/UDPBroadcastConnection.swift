@@ -172,7 +172,28 @@ open class UDPBroadcastConnection {
         guard let data = message.data(using: .utf8) else { return }
         sendBroadcast(data)
     }
-    
+    /*
+    open func initSocket(_ maxAttemptCount: Int) {
+        
+        var initialized: Bool = false
+        var attemptCount: Int = 0
+        
+        repeat {
+            initialized = createSocket()
+            attemptCount+=1
+            
+            if (!initialized) {
+                print("init socket: failed to init, attempt \(attemptCount)")
+                
+                if (attemptCount < maxAttemptCount) {
+                    usleep(200000 * UInt32(attemptCount))
+                }
+            }
+            
+        } while (!initialized && attemptCount < maxAttemptCount)
+    }
+    */
+ 
     /// Send broadcast data.
     ///
     /// - Parameter data: Data to send via broadcast.
