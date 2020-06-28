@@ -1235,7 +1235,7 @@ class StringDhcpOption: IDhcpOption {
     func toData() -> Data {
         
         var data: Data = Data()
-        data.append(DhcpUtils.toZString(rawStr: _string, length: _string.count))
+        data.append(DhcpUtils.toZString(rawStr: _string, length: _string.count+1))
         return data
     }
     

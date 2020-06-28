@@ -93,6 +93,22 @@ class DhcpMessage {
         }
     }
     
+    var isPxeEnabled: Bool {
+        get {
+            var value: String? = nil
+            
+            if let option = _dhcpOptions.first(where: {$0._optionType == OptionType.VendorClassIdentifier}) {
+                value = (option as! VendorClassIdentifierDhcpOption).classIdentifier
+            }
+            
+            return value != nil && ((value?.starts(with: "PXEClient")) != nil)
+        }
+    }
+    
+    func enablePxe() {
+        _dhcpOptions.append(VendorClassIdentifierDhcpOption(classIdentifier: VendorClassIdentifierDhcpOption.pxeClientIdentifier))
+    }
+    
     init() {
         _opcode = Opcode.Unknown
         _hwType = HardwareType.Ethernet
@@ -347,7 +363,6 @@ class DhcpMessage {
         message._broadcast = true
         message._clientHardwareAddress = macAddress
         message._dhcpOptions.append(MessageTypeDhcpOption(messageType: MessageType.Discover))
-        
         return message
     }
     
